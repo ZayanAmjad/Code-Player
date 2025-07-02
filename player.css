@@ -1,0 +1,91 @@
+html,
+body {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    width: 100%;
+    background-color: #EDEDED;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 4px
+}
+
+.imgContaier img {
+    width: 20px;
+    position: relative;
+    top: 1px
+}
+
+.center {
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.centerButtons {
+    font-weight: normal;
+    font-size: 13px;
+    padding: 8px 12px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.backgroundHover {
+    background-color: #E4E4E4;
+}
+
+.active {
+    background-color: lightblue;
+}
+
+
+.right {
+    display: flex;
+    align-items: flex-end;
+    align-items: center;
+    gap: 6px
+}
+
+.login {
+    padding: 4px 10px;
+    background-color: yellow;
+    border: none;
+}
+
+.links {
+    padding: 8px 6px;
+    text-decoration: none;
+    color: black;
+}
+
+.links:hover {
+    background-color: #E4E4E4;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.panel {
+    display: none;
+    width: 100%;
+    height: 90vh;
+    border-right: 1px solid gray;
+    padding: 10px;
+}
+

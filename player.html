@@ -6,81 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Player</title>
 
-    <style>
-        body {
-            margin: 0;
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 40px;
-            width: 100%;
-            background-color: #EDEDED;
-            margin: 0;
-            font-family: Helvetica, sans-serif;
-        }
-
-        .left {
-            display: flex;
-            align-items: center;
-            gap: 4px
-        }
-
-        .imgContaier img {
-            width: 20px;
-            position: relative;
-            top: 1px
-        }
-
-        .center {
-            display: flex;
-            align-items: flex-end;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .centerButtons {
-            font-weight: normal;
-            font-size: 13px;
-            padding: 8px 12px;
-            border-left: 1px solid #ccc;
-            border-right: 1px solid #ccc;
-            background-color: #f9f9f9;
-            cursor: pointer;
-        }
-
-        .centerButtons:hover {
-            background-color: #E4E4E4;
-        }
-
-
-        .right {
-            display: flex;
-            align-items: flex-end;
-            align-items: center;
-            gap: 6px
-        }
-
-        .login {
-            padding: 4px 10px;
-            background-color: yellow;
-            border: none;
-        }
-
-        .links {
-            padding: 8px 6px;
-            text-decoration: none;
-            color: black;
-        }
-
-        .links:hover {
-            background-color: #E4E4E4;
-        }
-    </style>
-
+    <link rel="stylesheet" href="player.css">
 </head>
 
 <body>
@@ -101,7 +27,7 @@
         </div>
 
         <div class="center">
-            <div class="centerButtons">
+            <div class="centerButtons active">
                 HTML
             </div>
             <div class="centerButtons">
@@ -113,7 +39,7 @@
             <div class="centerButtons">
                 CONSOLE
             </div>
-            <div class="centerButtons">
+            <div class="centerButtons active">
                 OUTPUT
             </div>
         </div>
@@ -125,6 +51,40 @@
         </div>
 
     </header>
+
+    <main>
+        <div class="panel">
+            Hello World!
+        </div>
+        <div class="panel">
+            Hello World!
+        </div>
+        <div class="panel">
+            Hello World!
+        </div>
+        <div class="panel">
+            Hello World!
+        </div>
+        <div class="panel">
+            Hello World!
+        </div>
+
+    </main>
+
+
+    <script src="jquery.js"></script>
+
+    <script>
+        $(".centerButtons").hover(function () {
+            $(this).addClass("backgroundHover");
+        }, function () {
+            $(this).removeClass("backgroundHover")
+        })
+
+        $(".centerButtons").click(function () {
+            $(this).toggleClass("active");
+        })
+    </script>
 </body>
 
 </html>
