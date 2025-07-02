@@ -27,19 +27,16 @@
         </div>
 
         <div class="center">
-            <div class="centerButtons active">
+            <div class="centerButtons active" id="HTML">
                 HTML
             </div>
-            <div class="centerButtons">
+            <div class="centerButtons" id="CSS">
                 CSS
             </div>
-            <div class="centerButtons">
+            <div class="centerButtons" id="JS">
                 JavaScript
             </div>
-            <div class="centerButtons">
-                CONSOLE
-            </div>
-            <div class="centerButtons active">
+            <div class="centerButtons active" id="output">
                 OUTPUT
             </div>
         </div>
@@ -53,21 +50,13 @@
     </header>
 
     <main>
-        <div class="panel">
-            Hello World!
-        </div>
-        <div class="panel">
-            Hello World!
-        </div>
-        <div class="panel">
-            Hello World!
-        </div>
-        <div class="panel">
-            Hello World!
-        </div>
-        <div class="panel">
-            Hello World!
-        </div>
+        <textarea name="HTML" class="panel" id="HTMLpanel"></textarea>
+
+        <textarea name="CSS" class="panel hidden" id="CSSpanel"></textarea>
+
+        <textarea name="JS" class="panel hidden" id="JSpanel"></textarea>
+
+        <iframe class="panel" id="outputpanel" sandbox="allow-same-origin allow-modals allow-forms allow-pointer-lock allow-popups allow-scripts"></iframe>
 
     </main>
 
@@ -75,15 +64,45 @@
     <script src="jquery.js"></script>
 
     <script>
+        function updateOutput() {
+            const html = $("#HTMLpanel").val();
+            const css = $("#CSSpanel").val();
+            const js = $("#JSpanel").val();
+
+            const iframe = document.getElementById("outputpanel");
+            const doc = iframe.contentDocument || iframe.contentWindow.document;
+
+            doc.open();
+            doc.write("<html><head><style>" + css + "</style></head><body>" + html + "</body></html>");
+            doc.close();
+
+            // Run JS safely after DOM is written
+            const script = doc.createElement("script");
+            script.type = "text/javascript";
+            script.text = js;
+            doc.body.appendChild(script);
+        }
+
         $(".centerButtons").hover(function () {
-            $(this).addClass("backgroundHover");
+        $(this).addClass("backgroundHover");
         }, function () {
-            $(this).removeClass("backgroundHover")
+        $(this).removeClass("backgroundHover")
         })
 
         $(".centerButtons").click(function () {
-            $(this).toggleClass("active");
+        $(this).toggleClass("active");
+
+        let panelID = $(this).attr("id") + "panel";
+        $("#" + panelID).toggle();
+
         })
+
+        updateOutput();
+
+        $("#HTMLpanel, #CSSpanel, #JSpanel").on('input', updateOutput);
+
+
+
     </script>
 </body>
 

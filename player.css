@@ -76,16 +76,28 @@ header {
     background-color: #E4E4E4;
 }
 
+.hidden {
+    display: none;
+}
+
 main {
     display: flex;
     justify-content: space-between;
 }
 
 .panel {
-    display: none;
     width: 100%;
     height: 90vh;
+    border: none;
     border-right: 1px solid gray;
     padding: 10px;
+    text-align: left;
 }
 
+#HTMLpanel {
+    resize: none;
+}
+
+textarea:focus {
+    outline: 0;
+}
