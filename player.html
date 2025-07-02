@@ -50,11 +50,11 @@
     </header>
 
     <main>
-        <textarea name="HTML" class="panel" id="HTMLpanel"></textarea>
+        <textarea name="HTML" class="panel" id="HTMLpanel" spellcheck="false"></textarea>
 
-        <textarea name="CSS" class="panel hidden" id="CSSpanel"></textarea>
+        <textarea name="CSS" class="panel hidden" id="CSSpanel" spellcheck="false"></textarea>
 
-        <textarea name="JS" class="panel hidden" id="JSpanel"></textarea>
+        <textarea name="JS" class="panel hidden" id="JSpanel" spellcheck="false"></textarea>
 
         <iframe class="panel" id="outputpanel" sandbox="allow-same-origin allow-modals allow-forms allow-pointer-lock allow-popups allow-scripts"></iframe>
 
@@ -100,8 +100,6 @@
         updateOutput();
 
         $("#HTMLpanel, #CSSpanel, #JSpanel").on('input', updateOutput);
-
-
 
     </script>
 </body>
